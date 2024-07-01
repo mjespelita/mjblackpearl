@@ -1,0 +1,47 @@
+header {
+    background: linear-gradient(to right, black 0%, rgb(208, 187, 0) 100%);
+}
+
+header h1 {
+    color: #fff;
+}
+
+header i {
+    color: #fff;
+}
+
+.pearl {
+    color: rgb(208, 187, 0);
+}
+
+.navs ul li {
+    list-style: none;
+}
+
+.navs a{
+    color: black;
+    text-decoration: none;
+}
+
+/* code {
+    color: #fff;
+    background-color: rgb(23, 23, 23);
+    padding: 10px;
+    border-radius: 10px;
+} */
+
+.green {
+    color: rgb(78, 255, 78);
+}
+
+.red {
+    color: rgb(255, 86, 86);
+}
+
+.blue {
+    color: aqua;
+}
+
+.yellow {
+    color: rgb(255, 255, 80);
+}

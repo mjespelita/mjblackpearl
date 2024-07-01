@@ -1,0 +1,8 @@
+1. JSON Response
+2. Middlewares
+3. Policies
+4. Logs
+5. Documentation - working
+6. Login Register Error handling
+7. Password Resets
+8. Email Verification
