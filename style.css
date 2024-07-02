@@ -45,3 +45,9 @@ header i {
 .yellow {
     color: rgb(255, 255, 80);
 }
+
+@media(max-width: 500px) {
+    .image {
+        width: 100%;
+    }
+}
