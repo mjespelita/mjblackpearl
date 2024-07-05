@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Black Pearl Documentation</title>
+    <meta name="author" content="Mark Jason Espelita">
+    <meta name="description" content="BlackPearl is a simple and lightweight PHP MVC (Model-View-Controller) framework used for building full-stack web applications in PHP. It utilizes well-known PHP packages and libraries that you may already be familiar with, such as the Blade Templating Engine for the user interface and the Eloquent ORM (Object-Relational Mapping) system for database interaction. BlackPearl also implements a classic routing system and database migration system to enhance the developer experience.">
+    <meta name="keywords" content="php, php framework, blackpearl, smark">
+    <meta name="robots" content="index, follow">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../bootstrap/dist/css/bootstrap-grid.min.css">
+    <link rel="stylesheet" href="../bootstrap/dist/css/bootstrap-grid.rtl.min.css">
+    <link rel="stylesheet" href="../bootstrap/dist/css/bootstrap-reboot.min.css">
+    <link rel="stylesheet" href="../bootstrap/dist/css/bootstrap-reboot.rtl.min.css">
+    <link rel="stylesheet" href="../bootstrap/dist/css/bootstrap-utilities.min.css">
+    <link rel="stylesheet" href="../bootstrap/dist/css/bootstrap-utilities.rtl.min.css">
+    <link rel="stylesheet" href="../bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../bootstrap/dist/css/bootstrap.rtl.min.css">
+
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../prism.css">
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/components/prism-php.min.js"></script> -->
+
+</head>
+<body>
+
+    <header class="py-4">
+        <div class="container">
+            <h1>Black<span class="pearl">Pearl</span></h1>
+            <i>Documentation</i>
+        </div>
+    </header>
+
+    <section class="py-4">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-2 col-md-2 col-sm-12 navs">
+                    <ul>
+                        <li><a href="index.html">Introduction</a></li>
+                        <li><a href="#installation">Installation</a></li>
+                        <li><a href="#env">Environment Variables</a></li>
+                        <li><a href="#controller">Controller</a></li>
+                        <li><a href="#models">Model</a></li>
+                        <li><a href="#views">Views</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-10 col-md-10 col-sm-12">
+                    <div class="container">
+                        <h1>Black<span class="pearl">Pearl</span></h1>
+                        <b>v1.0.7</b> <br>
+                        <small style="color: gray;">Released on July 5, 2024</small> <br> <br>
+                        <p>
+                            <b>BlackPearl</b> is a simple and lightweight <b>PHP MVC (Model-View-Controller)</b> framework used for building full-stack web applications in PHP. It utilizes well-known PHP packages and libraries that you may already be familiar with, such as the <b>Blade Templating Engine</b> for the user interface and the <b>Eloquent ORM (Object-Relational Mapping)</b> system for database interaction. <b>BlackPearl</b> also implements a classic routing system and database migration system to enhance the developer experience.
+                        </p>
+                        <hr>
+                        <b id="installation">Installation</b> <br> <br>
+<pre class="language-css">composer create-project blackpearl/blackpearl Project_Name</pre>
+                        <hr>
+                        <b id="env">Environment Variables (.env)</b> <br> <br>
+                        <p>
+                            You can configure your environment variables in the .env file.
+                        </p>
+
+                        <b id="env">Commands</b> <br> <br>
+                        <p>
+                            You can see available commands by typing <code class="language-css">php smark</code> on your terminal.
+                        </p>
+                        
+                        <hr>
+                        <b id="env">Routing</b> <br> <br>
+                        <p>
+                            Routing functionality is centralized within the <b>'routes/router.php'</b> file. This file serves as the hub where all routes for the application are registered and managed. Here, developers can define the endpoints and corresponding actions that dictate how incoming requests are handled and processed within the application. By consolidating routing configuration in a dedicated file, BlackPearl promotes clarity and ease of maintenance, ensuring that developers can efficiently manage the application's navigation and functionality. This centralized approach to routing not only enhances organization but also facilitates rapid development and scalability, allowing for seamless expansion and modification of application routes as project requirements evolve.
+                        </p>
+<pre class="language-css"><code class="language-css">$route->add('home', '/home', 'App\Controller\HomeController::index');</code></pre>
+                        
+                        
+                        <hr>
+                        <b id="controller">Controller</b> <br> <br>
+                        <p>
+                            Controllers play a pivotal role and are centrally located within the <b>'controllers'</b> folder. These controllers serve as repositories for the application's logic, encapsulating the essential business rules and operational workflows that define its functionality. By organizing logic into controllers, BlackPearl promotes a structured approach to development, enhancing clarity and maintainability across projects. Each controller within BlackPearl is responsible for specific actions and processes, facilitating a modular and scalable architecture. This design not only improves code organization and readability but also supports efficient management and extension of application features. Overall, BlackPearl's emphasis on controller-based architecture underscores its commitment to empowering developers to build robust and maintainable PHP applications effectively.
+                        </p>
+
+                        <p>Make a controller:</p>
+                        <code class="language-css">php smark make:controller ControllerName</code> <br> <br>
+                        <br>
+                        <p>Example Controller:</p>
+<pre><code class="language-css">namespace App\Controller;
+
+use Framework\BlackPearl\View;
+
+class HomeController
+{
+    public function index()
+    {
+        return View::render('home', []);
+    }
+}</code></pre>
+
+                        <p>This controller will render the <code>home.blade.php</code> view.</p>
+
+                        <hr>
+                        <b id="models">Models</b> <br> <br>
+                        <p>
+                            The model layer of the MVC (Model-View-Controller) architecture is stored within the designated <b>'models'</b> folder. Models in BlackPearl represent the essential data structures and business logic of the application, encapsulating interactions with the database and defining how data is manipulated and accessed. By segregating models into a dedicated folder, BlackPearl promotes a clear separation of concerns, enhancing code organization and maintainability. Each model within the 'models' folder corresponds to a specific entity or resource within the application, defining its properties, relationships with other models, and methods for data retrieval and manipulation. This structured approach to modeling not only facilitates efficient data management but also supports the scalability and extensibility of the application, empowering developers to build robust and scalable PHP applications with ease.
+                        </p>
+
+                        <p>Make a model:</p>
+                        <code class="language-css">php smark make:model ModelName</code> <br> <br>
+                        <p>
+                            This command will automatically add a database migration as well. See on <code>database/migrations/tables.php</code>.
+                        </p>
+                        <br>
+                        <p>Example Model:</p>
+<pre><code class="language-css">namespace Framework\Models;
+
+use Illuminate\Database\Eloquent\Model;
+
+class User extends Model
+{
+
+    protected $table = 'users'; // define table
+
+    protected $fillable = [
+        'name',
+        'email',
+        'password'
+    ];
+}</code></pre>
+
+                        <p>Example Migration Table:</p>
+<pre><code class="language-css">/* todos table */
+Capsule::schema()->create('todo', function (Blueprint $table) {
+    $table->increments('id');
+    $table->integer('todo');
+    $table->timestamps();
+});</code></pre>
+
+<hr>
+                        <b id="views">Views</b> <br> <br>
+                        <p>
+                            The view layer of the MVC (Model-View-Controller) architecture resides within the designated <b>'views'</b> folder. Views in BlackPearl encompass the presentation layer of the application, responsible for rendering user interfaces and displaying data to the end user. By organizing views into a centralized folder, BlackPearl promotes a structured approach to managing frontend components, enhancing code organization and facilitating efficient maintenance. Each view within the 'views' folder corresponds to a specific page or component within the application, incorporating HTML markup along with embedded PHP or template engine syntax for dynamic content generation. This separation of concerns allows developers to focus on designing responsive and visually appealing interfaces while leveraging the underlying logic encapsulated in controllers and models. By adhering to best practices in view management, BlackPearl empowers developers to create intuitive and scalable PHP applications that deliver seamless user experiences.                        </p>
+
+                        <p>Make a view:</p>
+                        <code class="language-css">php smark make:view view-name</code> <br> <br>
+                        <br>
+                        <p>Example View:</p>
+<pre><code class="language-css">@extends('layouts.app')
+@section('content')
+    {{-- Silence is golden --}}
+@endsection</code></pre>
+<br>
+<br>
+
+                    <p>
+                        For more details, type <code>php smark.php</code> on your terminal.
+                    </p>
+
+                    <hr>
+
+                    <h4>BlackPearl Core Functions</h4>
+                    <b id="dsf">Bar Code Generator</b>
+<pre><code class="language-css">use Framework\BlackPearl\BarCode;
+BarCode::generate('I love BlackPearl!');
+</code></pre>
+
+                    <hr>
+
+                    <b id="dsf">Export Excel Data</b> <br> <br>
+                    <p>Using Eloquent ORM.</p>
+<pre><code class="language-css">use Framework\BlackPearl\Excel;
+use Framework\Models\User;
+
+Excel::downloadExcel(array(
+    array(
+        'name' => 'Name',
+        'email' => 'Email'
+    )
+), User::select('name', 'email')->get());
+</code></pre> <br>
+                    <p>Using Eloquent ORM and provide Excel file name.</p>
+<pre><code class="language-css">use Framework\BlackPearl\Excel;
+use Framework\Models\User;
+
+Excel::downloadExcelAs('myExcelReport', array(
+    array(
+        'name' => 'Name',
+        'email' => 'Email'
+    )
+), User::select('name', 'email')->get());
+</code></pre>
+
+                    <hr>
+
+                    <b id="dsf">File Upload</b> <br>
+<pre><code class="language-css">use Framework\BlackPearl\File;
+
+File::upload($_FILES['fileInput'], '../storage/', ['jpg', 'jpeg', 'png']);
+</code></pre> 
+
+<hr>
+
+                    <b id="dsf">JSON File Manipulation</b> <br>
+<pre><code class="language-css">use Framework\BlackPearl\JSON;
+
+// Read JSON file data.
+JSON::read('../path/to/data.json');
+
+// Push data (to the last item).
+JSON::push('../path/to/data.json', array(
+    array(
+        'id' => uniqid('', true),
+        'name' => 'Mark Jason',
+        'age' => 24
+    )
+));
+
+// Unshift data (to the first item).
+JSON::unshift('../path/to/data.json', array(
+    array(
+        'id' => uniqid('', true),
+        'name' => 'Mark Jason',
+        'age' => 24
+    )
+));
+
+// Delete data.
+JSON::delete('../path/to/data.json', 'id', 1); // where id = 1
+
+// Update data.
+JSON::update('../path/to/data.json', 'id', 1, 'name', 'Mark Jason Updated Name'); // update name = Mark Jason Updated Name where id = 1
+</code></pre> 
+
+<hr>
+
+                    <b id="dsf">Mail</b> <br>
+<pre><code class="language-css">use Framework\BlackPearl\Mail;
+
+Mail::sendMail(
+    'markjasonespelita@gmail.com',      // sender email
+    '-- app password secret --',        // sender email app password
+    'markjasonespelita@gmail.com',      // send from email (sender)
+    'Mark Jason Espelita',              // send from name (sender)
+    'mark.medivadigital@gmail.com',     // reciever email
+    'markjasonespelita@gmail.com',      // reply to email
+    'Mark Jason Espelita',              // reply to name
+    'Hello World',                      // subject
+    'Hi Mark, This is a sample message from BlackPearl!'     // body (in HTML format)
+);
+</code></pre> 
+
+<hr>
+
+                    <b id="dsf">Math</b> <br>
+<pre><code class="language-css">use Framework\BlackPearl\Math;
+
+// Addition
+Math::compute('add', [2, 3]);
+
+// Subtraction
+Math::compute('minus', [2, 3]);
+
+// Multiplication
+Math::compute('multiply', [2, 3]);
+
+// Division
+Math::compute('divide', [2, 3]);
+</code></pre> 
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-5" style="background-color: #f3f3f3;">
+        <div class="container">
+            <img src="https://avatars.githubusercontent.com/u/136039394?v=4" alt="" height="100px" width="100px" style="border-radius: 50%; border: 1px solid #4e4e4e;"> <br>
+            <b>Mark Jason Penote Espelita</b> <br>
+            <p>Full Stack Web Developer</p>
+            <small>Creator of BlackPearl</small>
+
+            <br> <br>
+
+            <a href="https://www.facebook.com/profile.php?id=100009131763374"><button class="btn btn-info">Facebook</button></a>
+            <a href="https://m.me/100009131763374"><button class="btn btn-primary">Messenger</button></a>
+            <a href="tel:09978972884"><button class="btn btn-dark">Call</button></a>
+            <a href="mailto:markjasonespelita@gmail.com"><button class="btn btn-secondary">Email</button></a>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="../bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../bootstrap/dist/js/bootstrap.min.js"></script>
+
+    <script src="../jquery/dist/jquery.min.js"></script>
+    <script src="../prism.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/prism.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/components/prism-php.min.js"></script> -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    Prism.highlightAll();
+});
+</script>
+</body>
+</html>
+        
